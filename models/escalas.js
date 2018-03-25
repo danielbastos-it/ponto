@@ -10,21 +10,21 @@ module.exports = app => {
 };
 
 module.exports = (sequelize, DataType) => {
-  const Tasks = sequelize.define("Tasks", {
+  const Escalas = sequelize.define("Escalas", {
     id: {
       type: DataType.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    escala: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
       }
     },
-    done: {
-      type: DataType.BOOLEAN,
+    horarios: {
+      type: DataType.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
@@ -33,9 +33,9 @@ module.exports = (sequelize, DataType) => {
   }, {
     classMethods: {
       associate: (models) => {
-        Tasks.belongsTo(models.Users);
+        Escalas.belongsTo(models.Cargos);
       }
     }
   });
-  return Tasks;
+  return Escalas;
 }

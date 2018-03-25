@@ -7,7 +7,7 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
-    fistname: {
+    firstname: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
@@ -20,11 +20,61 @@ module.exports = (sequelize, DataType) => {
       validate: {
         notEmpty: true
       }
+    },
+    email: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    telefone: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    celular: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    pis: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    rg: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    cpf: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    matricula: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
     }
   }, {
     classMethods: {
       associate: (models) => {
-        Users.hasmany(models.Tasks);
+        Users.hasMany(models.Tasks);
+        Users.hasOne(models.Cargos);
       }
     }
   });
